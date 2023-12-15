@@ -3,8 +3,6 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello, world!");
-        System.out.println("here");
-        System.out.println("kay");
+        System.out.println("trying on my own");
     }
     }
