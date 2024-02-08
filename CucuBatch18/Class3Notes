@@ -1,0 +1,26 @@
+__________________________________________________________________________________________
+What we did in class 3
+__________________________________________________________________________________________
+tag    (or      and)
+plugin = {"pretty"}
+
+created configDirectory from resources
+then created config.propertiesFile under config
+
+
+from utils created these 3 JavaClass's
+1) to store ConfigReader
+2) to store Constants
+3) to store CommonMethods
+
+changed loginSteps and SearchEmployee and called from CommonMethods
+
+
+__________________________________________________________________________________________
+NOTES by Sr. MS
+
+if I want to execute scenarios based on 2 conditions
+we need config.prop to add all the configuration parameters
+
+plugin - pretty  - it prints all the step definitions in console
+common methods - we have all the common methods here

@@ -1,0 +1,34 @@
+__________________________________________________________________________________________
+What we did in class 2
+__________________________________________________________________________________________
+1) created utilsPackage under java and (created javaClass of CommonMethods)
+2) (used inheritance) by extending CommonMethod in step's classes
+3) created runnersPackage and created a javaCLass of RunnerClass
+to execute from one place
+We need to control the flow of execution
+to execute all the test cases of featuresFile (can be considered regression cuz its tests everything)
+to execute some of the test cases from featuresFile
+to execute one of the test cases from featuresFile
+
+4) @RunWith(Cucumber.class)
+features path
+glue
+dryRun (true    false)
+tag
+
+__________________________________________________________________________________________
+NOTES by Sr. MS
+
+utils  package is for all the utility classes
+
+we need junit to work with cucumber
+cucumber options-
+features - the path of features directory to execute all the TC's in one go
+glue - the path of the steps package, runner class will find all the step defs here
+dry run - if we set it to true, it will stop actual execution and scans all the steps
+if any step is missing, it will give me step definition for that step
+if we set it to false, then again execution will st6art
+tags - when we need to execute specific group of test cases or any specific TC
+we use tags.
+There is no limitation of using tags in scenarios
+

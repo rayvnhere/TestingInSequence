@@ -1,0 +1,105 @@
+__________________________________________________________________________________________
+What we did in class 5
+__________________________________________________________________________________________
+created page (package) under java
+created LoginPage (JavaClass) under java
+  @FindBy (org.     selenuim support)
+created testdata (Directory) under resources (cuz non technical) to keep multiple excelFile in my frameWork
+pasted excelFile in testdata and created ExeclReader(javaClass) under utils
+
+created pageInitializer (javaClass) under utils (java)
+extended it to CommonMethods (MultiLevel Inheritance)
+(helps to store objects so that to declare one time in and use it everywhere
+
+/* used static here to avoid null pointer issue
+
+instead of creating OBJECT in each class to initialize pages
+creating this PageInitializer class to store objects
+
+this class will used to create all objects
+this class will be utilized in all stepDef, so that we dont have to create object there anymore
+simply have to call the objects there
+
+and that is done how:
+  public static void initializePageObjects(){  // NEED TO INITIALIZE THIS OBJECT to make it usable//or else NullPointerException
+        loginPage = new LoginPage(IM AN OBJECT);  //tis can be done by adding this method in Hooks precondition of launching //so that it launch and initialize it
+
+
+with the concept of multi level inheritance if we extend this pageInitializer in commonMethods then
+PageInitializer will be available in commonMethods
+and commonMethod is already being extended in every class
+and so with the help of multi Level inheritance all stepDef will get PageInitializer
+
+PageInitializer is  Parent
+CommonMethod    is  Child
+allStepDef     are  GrandChild
+
+ */
+Q: why are we calling this 'initializePageObjects()' here in common methods ?
+A: so that I dont have to create it multiple times, created and called one time to to use everywhere (automatically initialized object)
+cuz we dont want to INITIALIZE object many times
+A: cuz it stores all object (i.e. login) and by calling it, it gets the objects of login
+and we are calling it here cuz we want to call it in every class and this was achieved by
+calling it in Hooks precondition with the help of multi level inheritnce, cuz we created the objectClass extended it to CommonMethods
+
+/*
+        sendText(firstname, addEmployeePage.firstNameLoc);
+        sendText(middleName,addEmployeePage.middleNameLoc);
+        sendText(lastName, addEmployeePage.lastNameLoc);
+   sentText   > from commonMethods
+   firstname    > from featureFile
+addEmployeePage > nameOfObject > from PageInitializer
+firstNameLoc    > locator      > from AddEmployeePage > extended to CommonMethods > extended to PageInitializer
+    */
+
+    ADDEMPLOYEE STEPS EXCEL FORENHANCED LOOP
+
+    @When("user adds multiple employees from excel and verify the employee has added")
+    public void user_adds_multiple_employees_from_excel_and_verify_the_employee_has_added() throws IOException {
+       //this excelREader returns list of maps of each employee
+
+        List<Map<String,String>> newEmployees = ExcelReader.read();
+        //how to get data from multiple maps to one
+        // enchancedLoop is also known as Loop alternate
+        for (Map<String,String> eachEmployee: newEmployees){
+//(Map<String,String> givesOneEachEmployee
+// eachEmployee > stores eachSetOfEmployee
+// newEmployees > listOfMaps
+
+
+
+/*sendText(data is coming from excelFile through excelReader)
+("firstName")     > from excelFile
+addEmployeePage   > nameOfInitializedObject of locator
+firstNameLoc      >  locator of HRMS website
+
+below line passes the data to HRMS website
+sendText to website (get the newEmployee firstName from excelFile and ADD EMPLOYEE using HRMS element locator
+
+ */
+
+
+
+
+
+
+
+
+NOTES By MS
+POM is another functionality of framework
+POM - page object model design pattern.
+POM (keeping locators in one class and storing them in key) concept of encapsulation
+
+as per this design pattern, we have a class for each page available in website
+we will keep locators for this page in the respective class
+login page locators will be in loginpage class and so on
+we call these locators as OBJECT REPOSITORY
+
+first, create page class and add object repository
+then create the constructor and call page factory
+then create the object of the class in page initializer class
+then comment out previous web element and call objects  with web elements
+
+DAR - Technical Architecture Review Meeting (in this meeting (Technical Architecture Team) they review my framework
+and provides feedback, and whatever suggestion they give, I have to implement it
+

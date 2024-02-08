@@ -1,0 +1,104 @@
+__________________________________________________________________________________________
+What we did in class 4
+__________________________________________________________________________________________
+created AddEmployee
+created Hooks (java Class) under Steps Package
+
+to achieve data driven testing use Scenario Outline: and pass data in angular i.e. "<firstName>"
+
+__________________________________________________________________________________________
+
+HOOKS - we will write the pre-condition(launching the application)
+and post-condition(close the browser)
+
+hooks class will always be in steps package
+
+#Why in steps package?
+cucu will decide where to implement pre & post condition stepDef from stepsPackage
+
+@before tag for pre condition
+@after tag for post condition
+
+Background - in one featurefile if you have mulptile scenario in whihc you have repeatation of steps again and again
+till the follow of sameScenrios is same untill it breaks, you can keep all those similar scenari's in Background
+- BackGround will execute before every Scenario
+
+background - in background, we write all the steps in feature file
+which is common in all the scenarios.
+once the flow is broken, we cannot write steps after that in background
+doesn't matter how many steps are common after flow is broken, we cannot write
+them in background because flow has already broke
+
+background is limited to one feature file
+it means for every feature file background will be different
+
+hooks vs background
+hooks are applicable for all feature files
+background is applicable for one feature file
+ flow of execution -
+ hooks will execute first
+ then background will execute
+ then scenario will execute
+
+
+ data driven testing
+ DDT - when your one scenario is executing against multiple sets of data
+
+Q: What type of framework you are using?
+A: our framework is hybrid - cuz it supports BDD and DDT
+________________________________
+By Sr. MS
+
+recap -
+
+There are four ways to pass data
+1) pass data from hardcoded data
+2) pass data from config.properties (readMethod)
+3) passing data directly from featureFile
+we can pass data from feature file in terms of parameters
+"data value", it will be considered as a parameter
+4) we can achieve DATA DRIVEN testing using feature file
+   we use examples table with scenario outline to pass multiple sets of data
+
+hooks - will be executed based on number of data set
+background - will be executed based on number of data set
+scenario - will be executed based on number of data set
+
+
+
+in cucumber we use -Assertions - which is from junit
+
+Function of assertion is to Assertions(validates 2 things)
+1) verification
+2) validation checkpoints
+
+(verification) here means reading the initial SRS-Software requirements specification document and understanding the details
+(validation) here means when you have the application & code, and testing it against the application
+and hence when we are working with assertion we are doing VALIDATION not verification
+
+verification - when you check the details on SRS
+validation - when you write code and check in the application
+
+you expect smth i.e.
+1) existence of element if its there or not (boolean)
+2) says, I dont care if there's existence or not I need the particular data to be available at this particular place
+
+what are the checkpoints?
+to check the validation checkpoints, we perform two things;
+two types of Assertion we use in autmation industry, they come from Junit, in terms of cucumber
+true - checks the existence of the element/text/field
+equals - checks the exact value of the element
+
+/*  Assert.assertEquals(errorMessage, errorMessageValue);
+errorMessage is from featureFile
+errorMessageValue from application
+
+these two errorMessage, errorMessageValue are getting compared
+instead of if else work
+ */
+
+beauty of assertion;-
+if runnerClass executes and the assertion is true (passed) then you wont find any
+message in the console
+
+if runnerClass executes and the assertion is failed then shows error in console
